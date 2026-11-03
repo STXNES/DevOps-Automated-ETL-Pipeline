@@ -1,3 +1,5 @@
+import sys
+import os
 import dns.resolver
 
 def check_txt_record(domain, prefix):
@@ -12,44 +14,44 @@ def check_txt_record(domain, prefix):
     return None
 
 def main():
+    target_domain = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("AUDIT_DOMAIN", "google.com")
+
     print("========================================")
-    print(" DOMAIN HEALTH AUDIT: airbnbmotion.studio")
+    print(f" DOMAIN HEALTH AUDIT: {target_domain}")
     print("========================================\n")
     
-    domain = "airbnbmotion.studio"
-    
     # 1. SPF Check
-    spf = check_txt_record(domain, "v=spf1")
+    spf = check_txt_record(target_domain, "v=spf1")
     if spf:
-        print(f"[✅] SPF Record Found: {spf}")
+        print(f"[OK] SPF Record Found: {spf}")
     else:
-        print("[❌] SPF Record MISSING! (Add TXT 'v=spf1 include:zoho.com ~all')")
+        print("[FAIL] SPF Record MISSING! (Add TXT 'v=spf1 include:spf.yourprovider.com ~all')")
         
     # 2. DKIM Check
-    # Zoho default selector is 'zmail._domainkey'
-    dkim_domain = f"zmail._domainkey.{domain}"
+    dkim_selector = os.environ.get("DKIM_SELECTOR", "default")
+    dkim_domain = f"{dkim_selector}._domainkey.{target_domain}"
     dkim = check_txt_record(dkim_domain, "v=DKIM1")
     if dkim:
-        print(f"[✅] DKIM Record Found: {dkim[:40]}...")
+        print(f"[OK] DKIM Record Found: {dkim[:45]}...")
     else:
-        print("[⚠️] DKIM Record Not Found at 'zmail._domainkey'. (Check Zoho Admin console for the exact selector)")
+        print(f"[WARN] DKIM Record Not Found at '{dkim_domain}'. Verify provider DNS selector.")
         
     # 3. DMARC Check
-    dmarc_domain = f"_dmarc.{domain}"
+    dmarc_domain = f"_dmarc.{target_domain}"
     dmarc = check_txt_record(dmarc_domain, "v=DMARC1")
     if dmarc:
-        print(f"[✅] DMARC Record Found: {dmarc}")
+        print(f"[OK] DMARC Record Found: {dmarc}")
     else:
-        print("[❌] DMARC Record MISSING! (Add TXT at _dmarc.airbnbmotion.studio: 'v=DMARC1; p=none;')")
+        print(f"[FAIL] DMARC Record MISSING! (Add TXT at _dmarc.{target_domain}: 'v=DMARC1; p=none;')")
         
     print("\n========================================")
-    print(" RESULTADO:")
+    print(" AUDIT SUMMARY:")
     if spf and dmarc:
-        print(" Si ves SPF y DMARC en verde, tu dominio está bien configurado.")
-        print(" Tus correos llegarán a la BANDEJA PRINCIPAL y no a Spam.")
+        print(" [OK] Domain DNS deliverability configured properly.")
+        print(" Outgoing emails will route to inbox instead of spam quarantine.")
     else:
-        print(" Falta configurar registros. Ve a Name.com y agrega los registros faltantes.")
-    print("========================================")
+        print(" [WARN] Deliverability issues detected. Check missing records above.")
+    print("========================================\n")
 
 if __name__ == "__main__":
     main()

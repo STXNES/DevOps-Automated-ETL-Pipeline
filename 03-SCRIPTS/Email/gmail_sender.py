@@ -21,7 +21,7 @@ def send_email(to_email, subject, html, thread_id=None, in_reply_to=None):
     message["Subject"] = subject
     
     # Generar un Message-ID único
-    msg_id = make_msgid(domain="airbnbmotion.studio")
+    msg_id = make_msgid(domain=os.environ.get("OUTREACH_DOMAIN", "stxnes.dev"))
     message["Message-ID"] = msg_id
 
     # Si es una respuesta de seguimiento, agregamos las cabeceras estándar de hilos

@@ -56,9 +56,9 @@ export function Sidebar() {
 
         <div className="sidebar-footer">
           <div className="nav-section-label">Accesos rápidos</div>
-          <a className="quick-link" href="https://www.airbnbmotion.studio/" target="_blank">Landing</a>
-          <a className="quick-link" href="https://axelray.gumroad.com/l/tbrnf" target="_blank" rel="noopener noreferrer">Gumroad</a>
-          <a className="quick-link" href="https://github.com/STXNES/airbnbmotion/actions" target="_blank">GitHub Actions</a>
+          <a className="quick-link" href="https://axro-project.vercel.app/" target="_blank">Portfolio</a>
+          <a className="quick-link" href="https://github.com/STXNES/DevOps-Automated-ETL-Pipeline" target="_blank" rel="noopener noreferrer">Repositorio</a>
+          <a className="quick-link" href="https://github.com/STXNES/DevOps-Automated-ETL-Pipeline/actions" target="_blank">GitHub Actions</a>
           <a className="quick-link" href="https://mail.zoho.com" target="_blank">Zoho Mail</a>
         </div>
       </aside>

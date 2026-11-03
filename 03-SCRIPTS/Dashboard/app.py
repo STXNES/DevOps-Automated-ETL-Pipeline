@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # --- Configuración de página ---
-st.set_page_config(page_title="Altus Real Estate HQ — Outreach Command Center", page_icon="⚡", layout="wide")
+st.set_page_config(page_title="DevOps ETL HQ — Automated Pipeline Command Center", page_icon="⚡", layout="wide")
 
 # --- Rutas de datos ---
 ROOT = Path(__file__).resolve().parents[2]
@@ -256,8 +256,8 @@ df = load_data()
 with st.sidebar:
     st.markdown("""
     <div style='margin-bottom: 30px;'>
-        <div style='font-size: 18px; font-weight: 700; color: #EDEFF3;'>Altus<span style='color: #C9903C;'>Real Estate</span></div>
-        <div style='font-size: 11px; color: #8C929D; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.1em;'>Outreach Ops</div>
+        <div style='font-size: 18px; font-weight: 700; color: #EDEFF3;'>DevOps<span style='color: #00C2FF;'>ETL HQ</span></div>
+        <div style='font-size: 11px; color: #8C929D; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.1em;'>Serverless Telemetry</div>
     </div>
     """, unsafe_allow_html=True)
     
@@ -274,13 +274,13 @@ with st.sidebar:
     
     st.markdown("""
     <div style='display: flex; flex-direction: column; gap: 8px; margin-top: 10px;'>
-        <a href='https://www.altusrealestate.com' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>
+        <a href='https://axro-project.vercel.app/' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>
             🌐 Visitar Sitio Web
         </a>
         <a href='https://mail.zoho.com' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>
             📧 Zoho Mail (Bandeja)
         </a>
-        <a href='https://github.com/STXNES/airbnbmotion/actions' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>
+        <a href='https://github.com/STXNES/DevOps-Automated-ETL-Pipeline/actions' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>
             🚀 GitHub Actions (Bot)
         </a>
         <a href='https://higgsfield.ai' target='_blank' style='text-decoration: none; color: #EDEFF3; background: #1D222B; padding: 10px; border-radius: 6px; display: block; border: 1px solid #252B35; font-size: 13px;'>

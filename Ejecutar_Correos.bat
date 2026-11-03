@@ -1,12 +1,12 @@
 @echo off
-title Airbnb AI Outreach - Autopilot
+title DevOps ETL & Outreach Pipeline - Autopilot
 color 0A
 
 echo ===================================================
-echo   INICIANDO AUTOMATIZACION DIARIA DE CORREOS
+echo   INICIANDO AUTOMATIZACION DIARIA DEL PIPELINE ETL
 echo ===================================================
 echo.
-echo No cierres esta ventana. Se cerrara sola al terminar.
+echo Ejecutando scripts de ingestion, validacion y sincronizacion...
 echo.
 
 :: Cambiar al directorio donde esta el batch file (raiz del proyecto)
@@ -19,8 +19,8 @@ if %ERRORLEVEL% NEQ 0 (
     color 0C
     echo.
     echo ===================================================
-    echo   ERROR EN LA EJECUCION
+    echo   ERROR EN LA EJECUCION DEL PIPELINE
     echo ===================================================
-    echo Por favor, revisa los mensajes de arriba.
+    echo Por favor, revisa los registros en 05-LOGS.
     pause
 )

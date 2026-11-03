@@ -10,7 +10,7 @@ export default function LoginPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // We will set a cookie and reload
-    if (password === 'airbnb2026') {
+    if (password === 'admin2026') {
       document.cookie = "crm_auth=true; path=/; max-age=31536000"; // 1 year expiry
       window.location.href = '/';
     } else {
