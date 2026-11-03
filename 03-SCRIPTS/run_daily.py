@@ -49,7 +49,7 @@ def check_pending_leads():
     return False
 
 def main():
-    print_header("INICIANDO AUTOPILOT DE ALTUS REAL ESTATE")
+    print_header("INICIANDO DEVOPS AUTOMATED ETL PIPELINE")
     print("Por favor, no cierres esta ventana hasta que termine el proceso.\n")
     
     # 1. Comprobar si hay leads pendientes en los lotes existentes

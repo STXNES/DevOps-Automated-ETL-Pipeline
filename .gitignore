@@ -27,6 +27,11 @@ dist/
 .next/
 .nuxt/
 
+# IDE, editores y asistentes AI
+.gemini/
+.vscode/
+.idea/
+
 # Archivos del sistema operativo
 .DS_Store
 Thumbs.db
