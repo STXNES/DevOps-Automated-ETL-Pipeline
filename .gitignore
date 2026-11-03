@@ -4,6 +4,7 @@ token.json
 credentials.json
 .env
 .env.*
+!.env.example
 
 # Logs e historial de ejecución del sistema
 05-LOGS/
